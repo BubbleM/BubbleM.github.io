@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="电子商务安全," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="信息加密技术是电子商务的核心．在一次网购活动中，消费者通常要将卡号和口令提供给商家，申请购物，消费者带有卡号和口令的订单在传送到商家的过程中，保证消费者敏感信息的保密性的任务要由密码技术来完成；同时在支付时还要对交易双方的身份进行认证，这要用到数字签名和认证技术． 密码技术的发展大致分为三个阶段：  古代加密方法古代的行帮暗语和一些文字猜谜游戏，实际上就是对信息的加密．通过原始的约定，把需要表达的">
+<meta name="keywords" content="电子商务安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息加密技术">
+<meta property="og:url" content="http://yoursite.com/2017/08/04/信息加密技术/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="信息加密技术是电子商务的核心．在一次网购活动中，消费者通常要将卡号和口令提供给商家，申请购物，消费者带有卡号和口令的订单在传送到商家的过程中，保证消费者敏感信息的保密性的任务要由密码技术来完成；同时在支付时还要对交易双方的身份进行认证，这要用到数字签名和认证技术． 密码技术的发展大致分为三个阶段：  古代加密方法古代的行帮暗语和一些文字猜谜游戏，实际上就是对信息的加密．通过原始的约定，把需要表达的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3188930-8480d3812762885f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3188930-e187ff33bc2faeaf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-04T10:18:51.440Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="信息加密技术">
+<meta name="twitter:description" content="信息加密技术是电子商务的核心．在一次网购活动中，消费者通常要将卡号和口令提供给商家，申请购物，消费者带有卡号和口令的订单在传送到商家的过程中，保证消费者敏感信息的保密性的任务要由密码技术来完成；同时在支付时还要对交易双方的身份进行认证，这要用到数字签名和认证技术． 密码技术的发展大致分为三个阶段：  古代加密方法古代的行帮暗语和一些文字猜谜游戏，实际上就是对信息的加密．通过原始的约定，把需要表达的">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3188930-8480d3812762885f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/04/信息加密技术/"/>
+
+
+
+
+
+  <title>信息加密技术 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/04/信息加密技术/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BubbleM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">信息加密技术</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-04T18:10:34+08:00">
+                2017-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>信息加密技术是电子商务的核心．在一次网购活动中，消费者通常要将卡号和口令提供给商家，申请购物，消费者带有卡号和口令的订单在传送到商家的过程中，<em>保证消费者敏感信息的保密性的任务要由密码技术来完成</em>；同时在支付时还要对交易双方的身份进行认证，这要用到<em>数字签名和认证技术．</em></p>
+<h2 id="密码技术的发展"><a href="#密码技术的发展" class="headerlink" title="密码技术的发展"></a>密码技术的发展</h2><p>大致分为三个阶段：</p>
+<ul>
+<li>古代加密方法<br>古代的行帮暗语和一些文字猜谜游戏，实际上就是对信息的加密．通过原始的约定，把需要表达的信息限定在一定范围内流通，属于较原始的古代加密方法．</li>
+<li>古典密码<br>古典密码的加密方法主要有文字置换，使用手工或机械变换的方式实现．<br>古典密码的代表密码算法主要有：单表代替密码，多表代替密码，转轮密码．</li>
+<li>近现代密码学<br>密码学与数据库技术，计算机网络，计算机软硬件知识联系紧密．</li>
+</ul>
+<h2 id="密码技术的基本知识"><a href="#密码技术的基本知识" class="headerlink" title="密码技术的基本知识"></a>密码技术的基本知识</h2><h3 id="密码学"><a href="#密码学" class="headerlink" title="密码学"></a>密码学</h3><p>密码学主要是研究通信安全保密的学科，它包括两个分支，它们相互对立又相互促进：</p>
+<ul>
+<li>密码编码学<br>密码编码学主要研究对信息进行变换，以保护信息在信道的传递过程中不被窃取，解读和利用的方法．</li>
+<li>密码分析学<br>密码分析学主要研究如何分析和破译密码．</li>
+</ul>
+<h3 id="密码系统"><a href="#密码系统" class="headerlink" title="密码系统"></a>密码系统</h3><p>一个<strong>密码系统</strong>由明文(Message)空间，密文(Cipher)空间，密码方案(E(X)加密，Ｄ(X)解密)和密钥(Key)空间组成．</p>
+<h3 id="密码体制的分类"><a href="#密码体制的分类" class="headerlink" title="密码体制的分类"></a>密码体制的分类</h3><ul>
+<li>根据密码的发展历史：古典密码和近现代密码</li>
+<li>根据加密算法和解密算法所使用的密钥是否相同：对称密钥密码体制（单钥/秘密密钥密码体制），非对称密钥密码体制(双钥/公开密钥密码体制)<br><strong>对称密钥密码体制</strong>：一个密码系统的加密密钥和解密密钥相同，或者虽然不相同，但由其中的任意一个密钥可以很容易地推导出另外一个．如：A5，SEAL，DES，IDEA，RC5，AES<br><strong>非对称密钥密码体制</strong>：每个用户都有一对选定的密钥，公钥和私钥．如：RAS，ElGamal，椭圆曲线密码等</li>
+<li>根据密码算法对明文信息的加密方式：流密码和分组密码<br><strong>流密码</strong>：逐位地加密明文消息字符，如A5，SEAL<br><strong>分组密码</strong>：将明文消息分组，逐组进行加密，如：DES，IDES，RC5，AES</li>
+<li>按照加密变换是否可逆：单向函数密码和双向变换密码<br><strong>单向函数</strong>：一类特殊的密码体制，其性质是可以容易地把明文转换为密码，但再把密文转换成原来的明文却是困难的．典型的单向函数有：MD4，MD5，SHA-1等．</li>
+</ul>
+<h2 id="密码分析"><a href="#密码分析" class="headerlink" title="密码分析"></a>密码分析</h2><p>一个密码系统的实际安全性牵涉到两方面因素：</p>
+<ul>
+<li>所使用的密码算法的保密强度</li>
+<li>密码算法以外不安全的因素</li>
+</ul>
+<h3 id="常见的密码攻击分类"><a href="#常见的密码攻击分类" class="headerlink" title="常见的密码攻击分类"></a>常见的密码攻击分类</h3><ul>
+<li>唯密文攻击<br>分析者有一个或一些密文</li>
+<li>已知明文攻击<br>分析者有一些明文及对应的密文</li>
+<li>选择明文攻击<br>分析者选择一些对攻击有利的特定明文，并产生对应的密文</li>
+<li>选择密文攻击<br>分析者选择一些对攻击有利的特定密文，并得到对应的明文</li>
+</ul>
+<p>四类攻击类型的强度按序递增．</p>
+<h2 id="对称密码体制"><a href="#对称密码体制" class="headerlink" title="对称密码体制"></a>对称密码体制</h2><h3 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h3><p>这种体制只要知道加(解)密算法，就可以反推解(加)密算法．<br>优点：具有很高的保密强度，可以达到经受国家级破译力量的分析和攻击．<br>缺点：密钥必须通过安全可靠的途径传递，密钥管理成为影响系统安全的关键性因素，使它难以满足系统的开放性要求．</p>
+<h3 id="对称密码体制的分类"><a href="#对称密码体制的分类" class="headerlink" title="对称密码体制的分类"></a>对称密码体制的分类</h3><p>按照对明文数据的加密方式不同，可以分为：</p>
+<ul>
+<li>流密码(系列密码)Stream Cipher<br>密钥流(序列密码)由种子密钥通过密钥流生成器得到的</li>
+<li>分组密码Block Cipher<br>加密和解密密钥相同，分组密码的安全性主要依赖于密钥，而不依赖对加密算法和解密算法的保密．因此，分组密码的加密和解密算法可以公开．</li>
+</ul>
+<h3 id="流密码"><a href="#流密码" class="headerlink" title="流密码"></a>流密码</h3><p>流密码体制的密钥流和明文流相互独立，我们称之为<em>同步流密码</em>，传输时某一个符号的传输错误不会影响到后面的符号的解密．<br>密钥流与明文流不相互独立，称<em>自同步(异步)流密码</em>．有错误传播现象．<br><img src="http://upload-images.jianshu.io/upload_images/3188930-8480d3812762885f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="二进制流密码体制模型"></p>
+<h3 id="分组密码"><a href="#分组密码" class="headerlink" title="分组密码"></a>分组密码</h3><h4 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h4><p>广泛应用于数据的保密传输，加密存储等．分组密码的安全性依赖于密钥，而不依赖于对加密算法和解密算法的保密．因此，分组密码的加解密算法可以公开．典型代表是DES和AES算法．<br><strong>一般情况下对密码算法有以下要求：</strong></p>
+<ul>
+<li>分组长度m足够大</li>
+<li>密钥空间足够大</li>
+<li>密码变换必须足够复杂</li>
+</ul>
+<h4 id="基本指导原则"><a href="#基本指导原则" class="headerlink" title="基本指导原则"></a>基本指导原则</h4><p>实际设计中，分组密码设计的<strong>基本指导原则</strong>采用香农建议的扩散和混乱．</p>
+<ul>
+<li>扩散<br>作用是一方面将每一位明文的影响尽可能迅速地扩散到较多的密文位中去，另一方面使每一位密钥的影响也尽可能迅速地扩展到较多的密文位中去，以便隐藏明文的统计特性．<br>目的是使密文中的任一比特都要尽可能与明文，密钥相关联．</li>
+<li>混乱<br>指密文和明文之间的统计特性的关系尽可能地复杂化．</li>
+</ul>
+<h4 id="AES加密原理"><a href="#AES加密原理" class="headerlink" title="AES加密原理"></a>AES加密原理</h4><p>密钥长度有128，192，256比特位三种，其密钥长度分别为N = ４,6,8个字(双字)．数据处理单元是字节．加密算法每一轮由4步操作构成：</p>
+<ul>
+<li>字节代换运算</li>
+<li>行移位变换</li>
+<li>列混合变换</li>
+<li>轮密钥的混合变换</li>
+</ul>
+<h4 id="AES取代DES的原因"><a href="#AES取代DES的原因" class="headerlink" title="AES取代DES的原因"></a>AES取代DES的原因</h4><ul>
+<li>DES密钥长度为68比特，小的密钥空间对像穷举密钥这样的攻击显得太小了．相比AES明显提高了加密的安全性，对于不同机密级别的信息，可采用不同长度的密钥，执行灵活性更高．</li>
+<li>在DES中，存在弱密钥和半弱密钥．对初始密钥的选取有一定的限制．AES由于密钥扩展函数的特点，所产生的轮密钥随机性很强，对初始密钥的选取没有特别的限制．</li>
+<li>DES加密算法存在互补对称性，会使得在选择明文攻击下所需的工作量减半．而AES的均衡对称结构既可以提高执行的灵活度，又可防止差分分析方法的攻击．</li>
+<li>AES算法的实现更简单．</li>
+</ul>
+<h2 id="非对称密码体制"><a href="#非对称密码体制" class="headerlink" title="非对称密码体制"></a>非对称密码体制</h2><h3 id="产生背景"><a href="#产生背景" class="headerlink" title="产生背景"></a>产生背景</h3><p>使用对称密码体制进行秘密通信，任意两个用户之间都会使用一个密钥．这样，如果一个网络中有n个用户，他们之间如果两两进行秘密通信的话，那么这个网络中共需要n(n-1)/2个密钥．其中，每个用户都需要保存n-1个密钥，这样大的密钥量给密钥分配，管理和使用带来很大的不便．而且，对称密码体制不能很好的解决身份认证和数字签名等问题．</p>
+<h3 id="理论基础-1"><a href="#理论基础-1" class="headerlink" title="理论基础"></a>理论基础</h3><p>公钥和私钥都既可以做加密密钥，也可做解密密钥．公钥密码体制中每个用户都分别拥有两个密钥：公钥和私钥，并且攻击者想要由公钥得到私钥在计算上是不可行的．<br><img src="http://upload-images.jianshu.io/upload_images/3188930-e187ff33bc2faeaf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="非对称密码体制加解密过程图"><br>用户A使用用户Ｂ的公钥对明文Ｍ进行加密得到密文Ｃ<br>用户Ｂ收到密文后使用自己的私钥对C进行解密得到明文Ｍ</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/电子商务安全/" rel="tag"># 电子商务安全</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/31/数据类型/" rel="next" title="数据类型">
+                <i class="fa fa-chevron-left"></i> 数据类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="BubbleM" />
+          <p class="site-author-name" itemprop="name">BubbleM</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#密码技术的发展"><span class="nav-number">1.</span> <span class="nav-text">密码技术的发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#密码技术的基本知识"><span class="nav-number">2.</span> <span class="nav-text">密码技术的基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#密码学"><span class="nav-number">2.1.</span> <span class="nav-text">密码学</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#密码系统"><span class="nav-number">2.2.</span> <span class="nav-text">密码系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#密码体制的分类"><span class="nav-number">2.3.</span> <span class="nav-text">密码体制的分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#密码分析"><span class="nav-number">3.</span> <span class="nav-text">密码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的密码攻击分类"><span class="nav-number">3.1.</span> <span class="nav-text">常见的密码攻击分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对称密码体制"><span class="nav-number">4.</span> <span class="nav-text">对称密码体制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理论基础"><span class="nav-number">4.1.</span> <span class="nav-text">理论基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对称密码体制的分类"><span class="nav-number">4.2.</span> <span class="nav-text">对称密码体制的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流密码"><span class="nav-number">4.3.</span> <span class="nav-text">流密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组密码"><span class="nav-number">4.4.</span> <span class="nav-text">分组密码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概要"><span class="nav-number">4.4.1.</span> <span class="nav-text">概要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本指导原则"><span class="nav-number">4.4.2.</span> <span class="nav-text">基本指导原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AES加密原理"><span class="nav-number">4.4.3.</span> <span class="nav-text">AES加密原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AES取代DES的原因"><span class="nav-number">4.4.4.</span> <span class="nav-text">AES取代DES的原因</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非对称密码体制"><span class="nav-number">5.</span> <span class="nav-text">非对称密码体制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#产生背景"><span class="nav-number">5.1.</span> <span class="nav-text">产生背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理论基础-1"><span class="nav-number">5.2.</span> <span class="nav-text">理论基础</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BubbleM</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
