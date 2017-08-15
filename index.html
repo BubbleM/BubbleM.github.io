@@ -284,6 +284,152 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/15/构建工具之gulp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BubbleM">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/15/构建工具之gulp/" itemprop="url">构建工具之gulp</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-15T18:08:32+08:00">
+                2017-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是gulp"><a href="#什么是gulp" class="headerlink" title="什么是gulp"></a>什么是gulp</h2><p>gulp是一个构建工具，一个streaming构建工具，使用node.js写的．</p>
+<h2 id="gulp的使用"><a href="#gulp的使用" class="headerlink" title="gulp的使用"></a>gulp的使用</h2><ol>
+<li><code>npm install --save-dev gulp</code>作为项目的开发依赖来安装．</li>
+<li><p>在根目录下创建文件<code>gulpfile.js</code>，即定义task的地方．</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line"></div><div class="line">gulp.task(&apos;default&apos;, function() &#123;</div><div class="line">  // 将你的默认的任务代码放在这</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行gulp<br>在<code>gulpfile.js</code>所在的目录下运行<code>gulp</code>,这时候默认<code>default</code>的任务task都会被运行．<br>如果要单独执行特定的任务，运行<code>gulp &lt;task&gt; &lt;othertask&gt;</code>跟上task名称即可．<br><code>gulp</code>命令默认执行default任务，等于<code>gulp default</code>。</p>
+</li>
+</ol>
+<h2 id="gulp的优势"><a href="#gulp的优势" class="headerlink" title="gulp的优势"></a>gulp的优势</h2><p>api简单，调用关系和依赖清晰，当然如果理解linux 管道或者其他类似的构建工具会容易.<br>而且每个任务都拆分成一个task，结构清晰，利用stream和pipe写法，组成task，也是非常容易学习的</p>
+<h2 id="gulp分析"><a href="#gulp分析" class="headerlink" title="gulp分析"></a>gulp分析</h2><ol>
+<li><p>多个依赖如何定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.task(&apos;default&apos;,[&apos;watch&apos;,&apos;task_2&apos;,&apos;task_3&apos;],function() &#123;</div><div class="line">    console.log(&apos;依赖作业终于执行完了&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>流式处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var uglify = require(&apos;gulp-uglify&apos;);</div><div class="line"></div><div class="line">gulp.task(&apos;default&apos;, function() &#123;</div><div class="line">    gulp.src(&apos;src/*.js&apos;)</div><div class="line">        .pipe(uglify())   //混淆压缩js</div><div class="line">        .pipe(gulp.dest(&apos;dist&apos;))</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><code>gulp.task()</code>返回值为一个stream.而stream是gulp的核心<br>pipe是管道的意思，也是stream里核心概念．即：上一个的输出，是下一个的输入．<br><code>.pipe()</code>是stream的核心，不是gulp的方法<br>不需要目录路径，stream流过来的就是文件数据，只要提供文件名即可。<br>每个独立操作单元都是一个task，使用pipe来组装tasks<br><code>gulp.src()</code>是输入；<br><code>gulp.dest()</code>：用于指定文件输出位置，第一个参数为目录路径。</p>
+<p>3.总结<br>1）每一个作业都是独立，定义为task<br>2）通过stream的机制，上一个的输出，作为下一个的输入<br>3）通过pipe方法组装task，完成我们想要的业务逻辑</p>
+<h2 id="gulp其他命令"><a href="#gulp其他命令" class="headerlink" title="gulp其他命令"></a>gulp其他命令</h2><p><code>gulp -T</code>查看它有哪些Tasks</p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ol>
+<li><p>请问gulp的任务都是同步顺序执行的嘛？流式是不是就代表无法异步？为什么还提到可以异步呢？</p>
+<blockquote>
+<p>这个原因是nodejs里的每个函数都是异步，所以pipe的好处相当于顺序执行了。gulp里的pipe链上的task都是同步顺序执行的。但pipe链外的不好说</p>
+</blockquote>
+</li>
+<li><p>gulp 中的流程控制，如何控制顺序执行和并行执行？<br><a href="http://www.gulpjs.com.cn/docs/recipes/running-tasks-in-series/" target="_blank" rel="external">http://www.gulpjs.com.cn/docs/recipes/running-tasks-in-series/</a><br>默认情况下，任务会以最大的并发数同时运行 – 也就是说，它会不做任何等待地将所有的任务同时开起来。顺序执行就添加依赖</p>
+</li>
+<li><p>请问gulp和webpack区别和联系？</p>
+<blockquote>
+<p>2者的功能是一样的，插件也都差不多，目前看到的区别都是使用方式、扩展等方面的;gulp是标准、通用构建工具，上面基本都讲了，使用和定义、扩展都非常简单，比webpack简单的多;webpack是新贵，支持loader和plugin机制，非常强大，而且可以把所有资源bundle到一起，目前react、babel等都使用其编译，其他细节，还需要研究，目前我了解的就这些</p>
+</blockquote>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/04/认证技术/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1071,7 +1217,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1084,7 +1230,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
